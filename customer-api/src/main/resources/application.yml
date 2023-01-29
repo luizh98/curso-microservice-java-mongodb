@@ -1,0 +1,16 @@
+# Spring
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 30000
+        readTimeout: 30000
+        loggerLevel: basic
+apis:
+  customer-api:
+    url: http://localhost:8081
