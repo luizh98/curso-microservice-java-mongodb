@@ -1,21 +1,8 @@
-# Spring
-spring:
-  profiles:
-    active: development
-  application:
-    name: cosmos-bff-student-ms
-
-management:
-  endpoint:
-    health:
-      show-details: always
-      probes:
-        enabled: true
-  health:
-    defaults:
-      enabled: true
-    db:
-      enabled: true
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
 feign:
   client:
     config:
@@ -23,110 +10,6 @@ feign:
         connectTimeout: 30000
         readTimeout: 30000
         loggerLevel: basic
-jwt:
-  secret: usersecret
----
-spring:
-  config:
-    activate:
-      on-profile: development
-  servlet:
-    multipart:
-      max-file-size: 100MB
-      max-request-size: 100MB
-server:
-  port: 8080
-  error:
-    whitelabel:
-      enabled: false
-logging:
-  level:
-    com.escolaconquer.bffstudentms: info
 apis:
-  cosmos-enrollment:
-    url: http://localhost:9300
-  cosmos-content:
-    url: http://localhost:9301
-  cosmos-progress:
-    url: http://localhost:9304
-  cosmos-files:
-    url: http://localhost:9303
-  viacep:
-    url: https://viacep.com.br/ws
-cloud:
-  aws:
-    region:
-      static: us-east-1
-    stack:
-      auto: false
-    sns:
-      tracking-log-service:
-        arn: arn:aws:sns:us-east-1:078708863669:develop_cosmos_tracking_log
----
-spring:
-  config:
-    activate:
-      on-profile: homolog
-  servlet:
-    multipart:
-      max-file-size: 100MB
-      max-request-size: 100MB
-server:
-  port: 8080
-logging:
-  level:
-    com.escolaconquer.bffstudentms: info
-apis:
-  cosmos-enrollment:
-    url: http://cosmos-enrollment-ms:8080
-  cosmos-content:
-    url: http://cosmos-content-ms:8080
-  cosmos-progress:
-    url: http://cosmos-progress-ms:8080
-  cosmos-files:
-    url: http://cosmos-files-ms:8080
-  viacep:
-    url: https://viacep.com.br/ws
-cloud:
-  aws:
-    region:
-      static: us-east-1
-    stack:
-      auto: false
-    sns:
-      tracking-log-service:
-        arn: arn:aws:sns:us-east-1:078708863669:homolog_cosmos_tracking_log
----
-spring:
-  config:
-    activate:
-      on-profile: production
-  servlet:
-    multipart:
-      max-file-size: 100MB
-      max-request-size: 100MB
-server:
-  port: 8080
-logging:
-  level:
-    com.escolaconquer.bffstudentms: info
-apis:
-  cosmos-enrollment:
-    url: http://cosmos-enrollment-ms:8080
-  cosmos-content:
-    url: http://cosmos-content-ms:8080
-  cosmos-progress:
-    url: http://cosmos-progress-ms:8080
-  cosmos-files:
-    url: http://cosmos-files-ms:8080
-  viacep:
-    url: https://viacep.com.br/ws
-cloud:
-  aws:
-    region:
-      static: us-east-1
-    stack:
-      auto: false
-    sns:
-      tracking-log-service:
-        arn: arn:aws:sns:us-east-1:078708863669:production_cosmos_tracking_log
+  customer-api:
+    url: http://localhost:8081

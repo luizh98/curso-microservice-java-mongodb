@@ -1,5 +1,6 @@
-package br.com.course.gatewayapi.controller.response;
+package br.com.course.customerapi.controller.response;
 
+import br.com.course.customerapi.model.Customer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,5 +19,12 @@ public class CustomerResponse {
     private Integer number;
     private String state;
     private String city;
+
+    public static CustomerResponse convertCustomer(Customer customer) {
+        return CustomerResponse.builder()
+                .name(customer.getName())
+                .age(customer.getAge())
+                .build();
+    }
 
 }

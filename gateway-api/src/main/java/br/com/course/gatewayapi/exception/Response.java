@@ -1,4 +1,4 @@
-package br.com.escolaconquer.edtechindicationprogramapi.exception;
+package br.com.course.gatewayapi.exception;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

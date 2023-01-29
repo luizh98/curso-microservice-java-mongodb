@@ -1,17 +1,16 @@
-package br.com.escolaconquer.edtechindicationprogramapi.exception;
+package br.com.course.gatewayapi.exception;
 
-import br.com.escolaconquer.edtechindicationprogramapi.exception.runtime.BadRequestException;
-import br.com.escolaconquer.edtechindicationprogramapi.exception.runtime.ObjectAlreadyExistsException;
-import br.com.escolaconquer.edtechindicationprogramapi.exception.runtime.ObjectNotFoundException;
-import br.com.escolaconquer.edtechindicationprogramapi.exception.runtime.RequiredFieldException;
+import br.com.course.gatewayapi.exception.runtime.BadRequestException;
+import br.com.course.gatewayapi.exception.runtime.ObjectAlreadyExistsException;
+import br.com.course.gatewayapi.exception.runtime.ObjectNotFoundException;
+import br.com.course.gatewayapi.exception.runtime.RequiredFieldException;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
-import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 @Slf4j

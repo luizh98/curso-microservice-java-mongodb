@@ -1,26 +1,32 @@
-package br.com.course.gatewayapi.service;
+package br.com.course.customerapi.service;
 
-import br.com.course.gatewayapi.controller.response.CustomerResponse;
-import br.com.course.gatewayapi.exception.runtime.ObjectNotFoundException;
-import br.com.course.gatewayapi.service.client.CustomerClient;
+import br.com.course.customerapi.controller.request.CustomerRequest;
+import br.com.course.customerapi.controller.response.CustomerResponse;
+import br.com.course.customerapi.model.Customer;
+import br.com.course.customerapi.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import static java.util.Objects.isNull;
 
 @Service
 @RequiredArgsConstructor
 public class CustomerService {
 
-    private final CustomerClient customerClient;
+    private final CustomerRepository customerRepository;
 
-    public CustomerResponse returnAllCustomers() {
-        CustomerResponse allCustomer = customerClient.getAllCustomers();
-        if (isNull(allCustomer)) {
-            throw new ObjectNotFoundException("All customers are null!");
-        }
+    public CustomerResponse createCustomer(CustomerRequest customerRequest) {
+        Customer customerSaved = customerRepository.save(Customer.builder()
+                .name(customerRequest.getName())
+                .age(customerRequest.getAge())
+                .build());
 
-        return allCustomer;
+        return CustomerResponse.convertCustomer(customerSaved);
+    }
+
+    public CustomerResponse returnCustomerById(String customerId) {
+        Customer customer = customerRepository.findById(customerId)
+                .orElseThrow(() -> new RuntimeException("Customer is not found!"));
+
+        return CustomerResponse.convertCustomer(customer);
     }
 
 }

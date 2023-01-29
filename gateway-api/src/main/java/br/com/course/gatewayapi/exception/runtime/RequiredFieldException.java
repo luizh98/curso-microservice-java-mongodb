@@ -1,4 +1,4 @@
-package br.com.escolaconquer.edtechindicationprogramapi.exception.runtime;
+package br.com.course.gatewayapi.exception.runtime;
 
 public class RequiredFieldException extends RuntimeException {
     public RequiredFieldException() {

@@ -1,4 +1,4 @@
-package br.com.course.gatewayapi.controller.request;
+package br.com.course.customerapi.controller.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

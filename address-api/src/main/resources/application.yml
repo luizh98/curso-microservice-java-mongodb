@@ -1,6 +1,9 @@
-# Spring
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/address-api
 server:
-  port: 8080
+  port: 8082
   error:
     whitelabel:
       enabled: false

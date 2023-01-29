@@ -1,6 +1,9 @@
-# Spring
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/customer-api
 server:
-  port: 8080
+  port: 8081
   error:
     whitelabel:
       enabled: false
@@ -12,5 +15,5 @@ feign:
         readTimeout: 30000
         loggerLevel: basic
 apis:
-  customer-api:
-    url: http://localhost:8081
+  address-api:
+    url: http://localhost:8082
