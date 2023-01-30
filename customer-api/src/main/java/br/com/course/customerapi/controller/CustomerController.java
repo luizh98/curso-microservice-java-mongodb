@@ -23,15 +23,13 @@ public class CustomerController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public CustomerResponse createCustomer(@RequestBody CustomerRequest customerRequest) {
-
         return customerService.createCustomer(customerRequest);
     }
 
-    @GetMapping("/{customerId}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public CustomerResponse returnCustomerById(@PathVariable String customerId) {
-
-        return customerService.returnCustomerById(customerId);
+    public CustomerResponse returnCustomerById(@PathVariable String id) {
+        return customerService.returnCustomerById(id);
     }
 
 }

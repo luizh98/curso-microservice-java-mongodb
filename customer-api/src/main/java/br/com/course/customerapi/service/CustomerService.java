@@ -22,8 +22,8 @@ public class CustomerService {
         return CustomerResponse.convertCustomer(customerSaved);
     }
 
-    public CustomerResponse returnCustomerById(String customerId) {
-        Customer customer = customerRepository.findById(customerId)
+    public CustomerResponse returnCustomerById(String id) {
+        Customer customer = customerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Customer is not found!"));
 
         return CustomerResponse.convertCustomer(customer);
