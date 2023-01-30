@@ -4,9 +4,6 @@ spring:
       uri: mongodb://localhost/customer-api
 server:
   port: 8081
-  error:
-    whitelabel:
-      enabled: false
 feign:
   client:
     config:
