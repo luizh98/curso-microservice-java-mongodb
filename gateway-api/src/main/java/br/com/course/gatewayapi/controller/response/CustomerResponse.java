@@ -15,8 +15,7 @@ public class CustomerResponse {
 
     private String name;
     private Integer age;
-    private Integer number;
-    private String state;
     private String city;
+    private String state;
 
 }
