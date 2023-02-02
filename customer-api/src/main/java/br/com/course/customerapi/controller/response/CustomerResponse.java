@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import static java.util.Objects.isNull;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,10 +22,12 @@ public class CustomerResponse {
     private String state;
     private String city;
 
-    public static CustomerResponse convertCustomer(Customer customer) {
+    public static CustomerResponse convertCustomer(Customer customer, AddressResponse addressResponse) {
         return CustomerResponse.builder()
                 .name(customer.getName())
                 .age(customer.getAge())
+                .city(!isNull(addressResponse) ? addressResponse.getCity() : "")
+                .state(!isNull(addressResponse) ? addressResponse.getState() : "")
                 .build();
     }
 
